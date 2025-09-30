@@ -3,13 +3,12 @@ import { useRef, useState } from "react";
 import { CheckValidate } from "../Utils/Validate";
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../Utils/Firebase";
-import { useNavigate } from "react-router-dom";
 import { addUser } from "../Utils/userSlice";
 import { useDispatch } from "react-redux";
+import { USER_AVATAR } from "../Utils/Constants";
 const Login=()=>{
     const [isSignForm,setisSignForm]=useState(true);
     const [errorMessage,seterrorMessage]=useState(null);
-    const navigate=useNavigate();
     const dispatch=useDispatch();
     const name=useRef(null);
     const email=useRef(null);
@@ -24,9 +23,8 @@ const Login=()=>{
         .then((userCredential) => {
         const user = userCredential.user;
         updateProfile(user, {
-        displayName: name.current.value, photoURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Virat_Kohli_portrait.jpg/1132px-Virat_Kohli_portrait.jpg?20180427075657"
+        displayName: name.current.value, photoURL:USER_AVATAR
         }).then(() => {
-             navigate("/browse");
              const {uid,displayName,email,photoURL} = auth.currentUser;
                 dispatch(addUser({uid:uid,displayName:displayName,email:email,photoURL:photoURL}));
 
@@ -46,7 +44,6 @@ const Login=()=>{
         signInWithEmailAndPassword(auth,email.current.value,password.current.value)
         .then((userCredential) => {
         const user = userCredential.user;
-        navigate("/browse");
 
   })
         .catch((error) => {

@@ -5,7 +5,7 @@ import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile
 import { auth } from "../Utils/Firebase";
 import { addUser } from "../Utils/userSlice";
 import { useDispatch } from "react-redux";
-import { USER_AVATAR } from "../Utils/Constants";
+import { BG_URL, USER_AVATAR } from "../Utils/Constants";
 const Login=()=>{
     const [isSignForm,setisSignForm]=useState(true);
     const [errorMessage,seterrorMessage]=useState(null);
@@ -63,7 +63,7 @@ const Login=()=>{
         <div >
             <Header/>
             <div className="absolute">
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/bebd95d0-65f9-41a9-9d12-4794db63653e/web/IN-en-20250922-TRIFECTA-perspective_5e75cfb4-3797-4f17-866b-181ff91a51dd_large.jpg" alt="body-logo"/>
+                <img src={BG_URL} alt="body-logo"/>
             </div>
             <form onSubmit={(e)=>e.preventDefault()} className=" w-3/12 absolute p-12 bg-black my-36 mx-auto left-0 right-0 text-white rounded-lg bg-opacity-80">
                 <h1 className="font-bold text-3xl p-4">{isSignForm ? "Sign In":"Sign Up"}</h1>

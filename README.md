@@ -34,6 +34,15 @@ TMDB Image CDN URL
 -usePopularMovies Custom hook
 -useTopRatedMovies Custom hook
 -useUpComingMovies Custom hook
+-GPT Search Page
+-GPT Search Bar
+-(BONUS)Multi-Language Feature in App
+
+
+
+
+
+
 #Features
 -Login/Sign Up
     -Sign In/Sign Up

@@ -12,6 +12,7 @@
 /build
 #ignoring my files
 src/Utils/Constants
+src/Utils/Firebase.js
 # misc
 .DS_Store
 .env.local

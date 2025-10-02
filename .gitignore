@@ -7,8 +7,7 @@
 
 # testing
 /coverage
-#ignoring my APi keys
-/src/Utils/Constants.js
+
 # production
 /build
 
